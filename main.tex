@@ -1,64 +1,74 @@
-% Размер страницы и шрифта
-\documentclass[12pt,a4paper]{article}
+\documentclass{article}
 
-% Работа с русским языком
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[russian, english]{babel}
+\usepackage{listings} % исходный код
+\usepackage{color}
 
-%\usepackage[T2A]{fontenc}            % кодировка
-\usepackage{cmap}                     % поиск в PDF
-\usepackage[T2A]{fontenc}             % кодировка
-\usepackage[utf8]{inputenc}           % кодировка исходного текста
-\usepackage[russian, english]{babel}  % локализация и переносы
-
-
-% Размер полей
-\usepackage[top=0.5in, bottom=0.75in, left=0.625in, right=0.625in]{geometry}
-
-%\usepackage{titlesec}                % Изменение формата заголовков
+\lstset{ % General setup for the package
+    language=C++,
+    basicstyle=\small\sffamily,
+    numbers=left,
+    numberstyle=\tiny,
+    frame=tb,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+    commentstyle=\color{red},
+    keywordstyle=\color{blue}
+}
+\title{Решения задач по книге Дасгупта}
+\author{Александр Шарипов}
+\date{\today}
 
 \begin{document}
 
-\section{8.1}
+\pagenumbering{gobble}
+\maketitle
+\newpage
+\pagenumbering{arabic}
 
-Пусть n -- кол-во вершин в графе, A -- матрица расстояний размера [n x n], в {} будем записывать сложностью проделанных операций.
+8 глава
 
-Считаем, что поисковую задачу мы умеем решать эффективно (за полиномиальное время). Для начала поймём, есть ли хоть один гамильтонов цикл для матрицы A:
+\subparagraph{8.1} \textit{Покажите, что если поисковую задачу коммивояжёра можно решить за полиномиальное время, то и оптимизационный вариант можно решить за полиномиальное время.}
 
-> "Найдём максимальный элемент в матрице A, обозначим его m" -- {O(n^2)}
+Пусть \textbf{n} -- кол-во вершин в графе, \textbf{A} -- матрица расстояний размера \textbf{[n x n]}. Считаем, что поисковую задачу мы умеем решать эффективно (за полиномиальное время). Сначала проверим, есть ли хоть один гамильтонов цикл для матрицы \textbf{A}, для этого найдём максимальный элемент \textbf{m} в матрице \textbf{A}, это займёт полиномиальное время -- \textbf{O(n^2)} и проверим, существует ли цикл веса не более \textbf{n * m}, проходящий по всем вершинам графа -- полиномиальное время по условию. Если не существует, то задача решена, если существует, то организуем бинарный поиск на отрезке \textbf{[n; n * m]} -- \textbf{log(n(m - 1))}.
 
-> "Существует ли цикл веса не более n * m, проходящий по всем вершинам графа?" -- {полиномиальное время по условию}
+\subparagraph{8.4} 
 
-Если не существует, то задача решена, если существует, то:
 
-> "Организуем бинарный поиск на отрезке [n; n * m]" -- {log(n(m - 1))} (если m экспоненциально зависит от n, то поиск эффективен, если же двойная экспонента, то уже нет. problem!!).
 
-\section{8.4},
+\subparagraph{8.5}
 
-\section{8.5}
+\subparagraph{8.8}
 
-\section{8.8}
+\subparagraph{8.9}
 
-\section{8.9}
+\subparagraph{8.12}
 
-\section{8.12}
+\subparagraph{8.13}
 
-\section{8.13}
+\subparagraph{8.16}
 
-\section{8.16}
+\subparagraph{8.17}
 
-\section{8.17}
+\subparagraph{8.20}
 
-\section{8.20}
+\subparagraph{8.21}
 
-\section{8.21}
+9 глава
 
-\section{9.4}
+\subparagraph{9.4}
 
-\section{9.6}
+\subparagraph{9.6}
 
-\section{9.7}
+\subparagraph{9.7}
 
-\section{9.8}
+\subparagraph{9.8}
 
-\section{9.9}
+\subparagraph{9.9}
 
 \end{document}
